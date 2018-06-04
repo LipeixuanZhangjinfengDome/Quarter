@@ -12,7 +12,7 @@ import android.widget.RadioGroup;
 import com.example.administrator.quarter.ui.Recommend.RecommendFragment;
 import com.example.administrator.quarter.ui.base.BaseActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
-/*lipeixuan*/
+/*lipeixuan=李佩璇*/
 public class MainActivity extends BaseActivity {
 
     private FragmentManager fragmentManager;
