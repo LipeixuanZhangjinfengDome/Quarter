@@ -2,7 +2,6 @@ package com.example.administrator.quarter;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -13,7 +12,7 @@ import android.widget.RadioGroup;
 import com.example.administrator.quarter.ui.Recommend.RecommendFragment;
 import com.example.administrator.quarter.ui.base.BaseActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
-
+/*lipeixuan*/
 public class MainActivity extends BaseActivity {
 
     private FragmentManager fragmentManager;
