@@ -3,7 +3,6 @@ package com.example.administrator.quarter.ui.base;
 import javax.inject.Inject;
 
 public class BasePresenter<T extends BaseContract.BaseView> implements BaseContract.BasePresenter<T> {
-    @Inject
     protected T mView;
 
     @Override

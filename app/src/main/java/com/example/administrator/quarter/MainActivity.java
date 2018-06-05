@@ -1,8 +1,11 @@
 package com.example.administrator.quarter;
 
+import android.app.Activity;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -17,7 +20,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 /*lipeixuan=李佩璇*/
-public class MainActivity extends BaseActivity {
+public class MainActivity extends AppCompatActivity {
 
     private FragmentManager fragmentManager;
     private SimpleDraweeView mNameImage;
@@ -44,7 +47,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(getContentLayout());
+        setContentView(R.layout.activity_main);
         initView();
         fragmentManager = getSupportFragmentManager();
         RecommendFragment recommendFragment = new RecommendFragment();
@@ -103,7 +106,7 @@ public class MainActivity extends BaseActivity {
         mNameImage.setImageURI(uri);
     }
 
-    @Override
+    /*@Override
     public int getContentLayout() {
         return R.layout.activity_main;
     }
@@ -116,5 +119,5 @@ public class MainActivity extends BaseActivity {
     @Override
     public void initView(View view) {
 
-    }
+    }*/
 }
