@@ -3,6 +3,8 @@ package com.example.administrator.quarter.Module;
 import com.example.administrator.quarter.net.AdApi;
 import com.example.administrator.quarter.net.AdApiService;
 import com.example.administrator.quarter.net.Api;
+import com.example.administrator.quarter.net.JokesApi;
+import com.example.administrator.quarter.net.JokesApiService;
 import com.example.administrator.quarter.net.MyInterceptor;
 
 import java.util.concurrent.TimeUnit;
@@ -37,4 +39,18 @@ public class HttpModule {
         AdApiService adApiService = retrofit.create(AdApiService.class);
         return AdApi.getAdApi(adApiService);
     }
+
+    @Provides
+    JokesApi provideJokesApi(OkHttpClient.Builder builder){
+        builder.addInterceptor(new MyInterceptor());
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.URL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(builder.build())
+                .build();
+        JokesApiService jokesApiService = retrofit.create(JokesApiService.class);
+        return JokesApi.getJokes(jokesApiService);
+    }
+
 }

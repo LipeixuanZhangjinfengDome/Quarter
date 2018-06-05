@@ -18,6 +18,7 @@ public class MyInterceptor implements Interceptor {
             HttpUrl httpUrl = originRequest.url()
                     .newBuilder()
                     .addQueryParameter("source", "android")
+                    .addQueryParameter("appVersion", "100")
                     .build();
             Request request = new Request.Builder().url(httpUrl).build();
             //发送请求
@@ -32,6 +33,7 @@ public class MyInterceptor implements Interceptor {
                 builder.add(body.name(i), body.value(i));
             }
             builder.add("source", "android");
+            builder.add("appVersion", "100");
             FormBody formBody = builder.build();
             Request request = new Request.Builder()
                     .url(originRequest.url())

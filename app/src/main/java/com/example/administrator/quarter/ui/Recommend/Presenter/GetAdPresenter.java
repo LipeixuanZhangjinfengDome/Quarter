@@ -1,7 +1,9 @@
 package com.example.administrator.quarter.ui.Recommend.Presenter;
 
 import com.example.administrator.quarter.bean.AdBean;
+import com.example.administrator.quarter.bean.JokesBean;
 import com.example.administrator.quarter.net.AdApi;
+import com.example.administrator.quarter.net.JokesApi;
 import com.example.administrator.quarter.ui.Recommend.contract.GetAdContract;
 import com.example.administrator.quarter.ui.base.BasePresenter;
 
@@ -15,10 +17,15 @@ import io.reactivex.schedulers.Schedulers;
 
 public class GetAdPresenter extends BasePresenter<GetAdContract.View> implements GetAdContract.Presenter {
     private AdApi adApi;
+    private JokesApi jokesApi;
     @Inject
-    public GetAdPresenter(AdApi adApi) {
+    public GetAdPresenter(AdApi adApi, JokesApi jokesApi) {
         this.adApi = adApi;
+        this.jokesApi = jokesApi;
     }
+
+
+
 
     @Override
     public void getAd() {
@@ -37,6 +44,37 @@ public class GetAdPresenter extends BasePresenter<GetAdContract.View> implements
                             mView.onSuccess(adBean);
                         }
 
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+
+    }
+
+    @Override
+    public void getJokes() {
+        jokesApi.getJokes()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Observer<JokesBean>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(JokesBean jokesBean) {
+                        if (mView!=null){
+                            mView.onJokesSuccess(jokesBean);
+                        }
                     }
 
                     @Override

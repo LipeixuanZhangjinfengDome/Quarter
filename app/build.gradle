@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.example.administrator.quarter"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -50,5 +50,7 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
     //刷新
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4-7'
-    implementation project(':library')
+    //视频
+    compile 'cn.jzvd:jiaozivideoplayer:6.0.0'
+
 }
