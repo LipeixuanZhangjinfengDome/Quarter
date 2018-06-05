@@ -2,6 +2,7 @@
 .gradle
 .idea
 app/build/
+library/build/
 .gradle
 /local.properties
 /.idea/libraries
