@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
         //为侧滑菜单设置布局
         /* menu.setMenu(R.layout.sliding_left);*/
         menu.setMenu(R.layout.sliding_left);
+        //查找侧滑菜单里面的
         my_head = menu.findViewById(R.id.my_head);
         my_name = menu.findViewById(R.id.my_name);
         /* my_head.setOnClickListener(this);*/
