@@ -1,8 +1,10 @@
 package com.example.administrator.quarter;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.administrator.quarter.ui.Recommend.RecommendFragment;
 import com.example.administrator.quarter.ui.base.BaseActivity;
+import com.example.administrator.quarter.ui.sliding.login.Login1Activity;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
@@ -40,6 +43,7 @@ public class MainActivity extends BaseActivity {
     private RadioButton mBtn3;
     private RadioGroup mRg;
     private SlidingMenu menu;
+    private LinearLayout lin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +62,8 @@ public class MainActivity extends BaseActivity {
     private void getMenu() {
         menu = new SlidingMenu(this);
         menu.setMode(SlidingMenu.LEFT);
-        //滑动显示的布局文件
-        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+       /* //滑动显示的布局文件
+        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);*/
         //触摸哪里可以发生滑动
         menu.attachToActivity(this, SlidingMenu.SLIDING_WINDOW);
         //屏幕宽度
@@ -71,10 +75,20 @@ public class MainActivity extends BaseActivity {
 
         //为侧滑菜单设置布局
         /* menu.setMenu(R.layout.sliding_left);*/
-        menu.setMenu(R.layout.sliding_left);
+        View lview = LayoutInflater.from(MainActivity.this).inflate(R.layout.sliding_left, null);
+        menu.setMenu(lview);
         //查找侧滑菜单里面的
-        my_head = menu.findViewById(R.id.my_head);
-        my_name = menu.findViewById(R.id.my_name);
+       /* my_head = menu.findViewById(R.id.my_head);
+        my_name = menu.findViewById(R.id.my_name);*/
+        lin = menu.findViewById(R.id.lin1);
+        lin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Login1Activity.class);
+                startActivity(intent);
+
+            }
+        });
         /* my_head.setOnClickListener(this);*/
     }
 
@@ -86,6 +100,7 @@ public class MainActivity extends BaseActivity {
                 menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);//全屏滑出
                 menu.showMenu();
                 menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);//不可以滑出,只可以点击
+
             }
         });
 
