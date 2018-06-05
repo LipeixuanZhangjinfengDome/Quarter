@@ -17,6 +17,8 @@
             android:id="@+id/name_image"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            app:roundAsCircle="true"
+            android:src="@drawable/touxiang"
 
             />
         <TextView
@@ -28,9 +30,11 @@
             />
         <ImageView
             android:id="@+id/chuangzuo"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
             android:layout_marginRight="10dp"
+            android:src="@drawable/xiugai"
 
             />
     </LinearLayout>

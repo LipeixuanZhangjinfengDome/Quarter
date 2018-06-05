@@ -1,5 +1,7 @@
 package com.example.administrator.quarter;
 
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.view.View;
@@ -12,6 +14,8 @@ import android.widget.RadioGroup;
 import com.example.administrator.quarter.ui.Recommend.RecommendFragment;
 import com.example.administrator.quarter.ui.base.BaseActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+
 /*lipeixuan=李佩璇*/
 public class MainActivity extends BaseActivity {
 
@@ -58,6 +62,8 @@ public class MainActivity extends BaseActivity {
         mBtn2 = (RadioButton) findViewById(R.id.btn2);
         mBtn3 = (RadioButton) findViewById(R.id.btn3);
         mRg = (RadioGroup) findViewById(R.id.rg);
+        Uri uri = Uri.parse("http://tx.haiqq.com/uploads/allimg/160812/102GJ358-9.jpg");
+        mNameImage.setImageURI(uri);
     }
 
     @Override
