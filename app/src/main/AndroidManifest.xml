@@ -66,6 +66,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.sliding.login.Login1Activity">
+
+        </activity>
+        <activity android:name=".ui.sliding.login.Login2Activity"></activity>
     </application>
 
 </manifest>

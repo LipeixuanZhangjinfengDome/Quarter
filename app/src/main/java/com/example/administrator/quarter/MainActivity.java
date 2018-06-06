@@ -4,9 +4,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -14,13 +14,12 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.example.administrator.quarter.ui.Recommend.RecommendFragment;
-import com.example.administrator.quarter.ui.base.BaseActivity;
-import com.example.administrator.quarter.ui.sliding.login.Login1Activity;
 import com.example.administrator.quarter.ui.Recommend.TuiJianFragment;
+import com.example.administrator.quarter.ui.sliding.login.Login1Activity;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private FragmentManager fragmentManager;
     private SimpleDraweeView mNameImage;
@@ -54,10 +53,13 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager = getSupportFragmentManager();
         TuiJianFragment tuiJianFragment = new TuiJianFragment();
         fragmentManager.beginTransaction().replace(R.id.flout, tuiJianFragment).commit();
+        getMenu();
         //设置点击事件
         setLisenter();
 
     }
+
+
 
     private void getMenu() {
         menu = new SlidingMenu(this);
@@ -91,9 +93,7 @@ public class MainActivity extends AppCompatActivity {
         });
         /* my_head.setOnClickListener(this);*/
     }
-
     public void setLisenter() {
-
         mNameImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,7 +104,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
     }
 
     private void initView() {
@@ -118,6 +117,17 @@ public class MainActivity extends AppCompatActivity {
         mRg = (RadioGroup) findViewById(R.id.rg);
         Uri uri = Uri.parse("http://tx.haiqq.com/uploads/allimg/160812/102GJ358-9.jpg");
         mNameImage.setImageURI(uri);
+        mNameImage.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            default:
+                break;
+            case R.id.name_image:
+                break;
+        }
     }
 
     /*@Override

@@ -36,11 +36,13 @@
 
             />
     </LinearLayout>
+
     <FrameLayout
         android:id="@+id/flout"
-        android:layout_below="@+id/lay"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></FrameLayout>
+        android:layout_height="match_parent"
+        android:layout_below="@+id/lay"
+        ></FrameLayout>
 
     <RadioGroup
         android:background="#ffffff"
