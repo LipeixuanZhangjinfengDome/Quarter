@@ -51,6 +51,6 @@ dependencies {
     //刷新
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4-7'
     //视频
-    compile 'cn.jzvd:jiaozivideoplayer:6.0.0'
+    compile 'fm.jiecao:jiecaovideoplayer:5.5'
     implementation project(':library')
 }

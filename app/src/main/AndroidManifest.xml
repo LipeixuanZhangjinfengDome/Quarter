@@ -52,7 +52,7 @@
         android:name=".app.MyApp"
         android:allowBackup="true"
         tools:replace="icon,label,theme"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/biao"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"

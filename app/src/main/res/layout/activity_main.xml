@@ -11,6 +11,7 @@
         android:layout_alignParentTop="true"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:background="#3399FF"
         android:orientation="horizontal"
         >
         <com.facebook.drawee.view.SimpleDraweeView
@@ -24,6 +25,8 @@
             android:layout_height="match_parent"
             android:layout_weight="8"
             android:text="推荐"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
             android:gravity="center"
             />
         <ImageView
@@ -32,7 +35,7 @@
             android:layout_height="30dp"
             android:layout_gravity="center"
             android:layout_marginRight="10dp"
-            android:src="@drawable/xiugai"
+            android:src="@drawable/baise"
 
             />
     </LinearLayout>
@@ -44,43 +47,14 @@
         android:layout_below="@+id/lay"
         ></FrameLayout>
 
-    <RadioGroup
-        android:background="#ffffff"
-        android:id="@+id/rg"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
-        >
-        <RadioButton
-            android:id="@+id/btn1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="推荐"
-            android:button="@null"
-            android:gravity="center"
-            />
-        <RadioButton
-            android:id="@+id/btn2"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="段子"
-            android:button="@null"
-            android:gravity="center"
-            />
-        <RadioButton
-            android:id="@+id/btn3"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="视频"
-            android:button="@null"
-            android:gravity="center"
-            />
 
-    </RadioGroup>
+    <com.example.administrator.quarter.utils.BottomBar
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_gravity="bottom" />
 
 
 
