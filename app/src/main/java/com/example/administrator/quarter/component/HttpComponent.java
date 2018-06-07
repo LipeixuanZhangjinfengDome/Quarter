@@ -4,6 +4,8 @@ import com.example.administrator.quarter.Module.HttpModule;
 import com.example.administrator.quarter.ui.Recommend.GuanZhuFragment;
 import com.example.administrator.quarter.ui.Recommend.RecommendFragment;
 import com.example.administrator.quarter.ui.duanzi.DuanZiFragment;
+import com.example.administrator.quarter.ui.video.HotFragment;
+import com.example.administrator.quarter.ui.video.NearFragment;
 
 import dagger.Component;
 
@@ -14,5 +16,8 @@ public interface HttpComponent {
     void inject(GuanZhuFragment guanZhuFragment);
 
     void inject(DuanZiFragment duanZiFragment);
+    void inject(HotFragment hotFragment);
+
+    void inject(NearFragment nearFragment);
 
 }
