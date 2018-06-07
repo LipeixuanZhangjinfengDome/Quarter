@@ -11,8 +11,6 @@ import dagger.Component;
 @Component(modules = HttpModule.class)
 public interface HttpComponent {
    void inject(RecommendFragment recommendFragment);
-
-
    void inject(GuanZhuFragment guanZhuFragment);
 
    void inject(DuanZiFragment duanZiFragment);
