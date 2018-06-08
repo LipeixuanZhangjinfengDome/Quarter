@@ -125,8 +125,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mNameImage = (SimpleDraweeView) findViewById(R.id.name_image);
         mChuangzuo = (ImageView) findViewById(R.id.chuangzuo);
         mLay = (LinearLayout) findViewById(R.id.lay);
-        Uri uri = Uri.parse("http://tx.haiqq.com/uploads/allimg/160812/102GJ358-9.jpg");
+        Uri uri = Uri.parse("res://drawable/"+R.drawable.touxiang);
         mNameImage.setImageURI(uri);
+       // mNameImage.setBackgroundResource(R.drawable.touxiang);
         mNameImage.setOnClickListener(this);
     }
 

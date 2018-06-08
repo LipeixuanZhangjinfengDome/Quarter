@@ -27,6 +27,8 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
      * 拿起手机速来抢个沙发吧！~
      */
     private TextView mTv3;
+    private int tag;
+    private int tag1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +43,6 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
 
         mImg2.setTag(1);
         mImg3.setTag(1);
-        mImg4.setTag(1);
 
 
     }
@@ -83,30 +84,41 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
             default:
                 break;
             case R.id.img1:
-
-
                 break;
             case R.id.img2:
-                int tag = (int) mImg2.getTag();
-                if (tag==1) {
-                    mImg2.setBackgroundResource(R.drawable.oneleft);
-
-                    mImg2.setTag(2);
+                tag = (int) mImg2.getTag();
+                if (tag1==1){
+                    return;
                 }else {
-                    mImg2.setBackgroundResource(R.drawable.xin);
-                    mImg2.setTag(1);
+                    if (tag ==1) {
+                        mImg2.setBackgroundResource(R.drawable.oneleft);
+
+                        mImg2.setTag(2);
+                    }else {
+                        mImg2.setBackgroundResource(R.drawable.xin);
+                        mImg2.setTag(1);
+                    }
                 }
+
                 break;
                 case R.id.img3:
-                int tag1 = (int) mImg3.getTag();
-                if (tag1==1) {
-                    mImg3.setBackgroundResource(R.drawable.heicheck);
+                    tag1 = (int) mImg3.getTag();
 
-                    mImg3.setTag(2);
-                }else {
-                    mImg3.setBackgroundResource(R.drawable.lie);
-                    mImg3.setTag(1);
-                }
+                    if (tag==1){
+                        return;
+                    }else {
+                        if (tag1 ==1) {
+                            mImg3.setBackgroundResource(R.drawable.heicheck);
+                            mImg3.setTag(2);
+                        }else {
+                            mImg3.setBackgroundResource(R.drawable.lie);
+                            mImg3.setTag(1);
+                        }
+                    }
+
+
+
+
                 break;
                 /*case R.id.img4:
                 int tag = (int) mImg4.getTag();
