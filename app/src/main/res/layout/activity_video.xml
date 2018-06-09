@@ -44,11 +44,11 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             />
-        <ImageView
+        <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/img5"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/touxiang"
+            app:roundAsCircle="true"
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"

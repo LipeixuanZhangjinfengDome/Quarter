@@ -1,6 +1,7 @@
 package com.example.administrator.quarter.ui.video;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -40,6 +41,8 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
         mVideoStart.setUp(bean, JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL, "");
         Glide.with(getApplicationContext()).load("http://p.qpic.cn/videoyun/0/2449_43b6f696980311e59ed467f22794e792_1/640")
                 .into(mVideoStart.thumbImageView);
+        Uri uri = Uri.parse("res://drawable/"+R.drawable.touxiang);
+        mImg5.setImageURI(uri);
 
         mImg2.setTag(1);
         mImg3.setTag(1);
@@ -84,6 +87,7 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
             default:
                 break;
             case R.id.img1:
+                finish();
                 break;
             case R.id.img2:
                 tag = (int) mImg2.getTag();
@@ -115,10 +119,6 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
                             mImg3.setTag(1);
                         }
                     }
-
-
-
-
                 break;
                 /*case R.id.img4:
                 int tag = (int) mImg4.getTag();

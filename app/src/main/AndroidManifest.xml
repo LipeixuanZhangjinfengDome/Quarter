@@ -65,15 +65,19 @@
             android:name=".MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".ui.sliding.login.Login1Activity" />
+        <activity android:name=".ui.sliding.login.Login2Activity" />
+        <activity android:name=".ui.video.VideoActivity" />
+        <activity android:name=".WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
-        <activity android:name=".ui.sliding.login.Login1Activity"></activity>
-        <activity android:name=".ui.sliding.login.Login2Activity" />
-        <activity android:name=".ui.video.VideoActivity"></activity>
     </application>
 
 </manifest>
