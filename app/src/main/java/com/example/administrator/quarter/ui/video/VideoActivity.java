@@ -7,9 +7,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.administrator.quarter.R;
+import com.umeng.socialize.ShareAction;
+import com.umeng.socialize.UMShareAPI;
+import com.umeng.socialize.UMShareListener;
+import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.media.UMWeb;
 
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
@@ -30,6 +36,11 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
     private TextView mTv3;
     private int tag;
     private int tag1;
+    private Uri uri;
+    private ImageView mImage1;
+    private ImageView mImage2;
+    private ImageView mImage3;
+    private ImageView mImage4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +52,14 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
         mVideoStart.setUp(bean, JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL, "");
         Glide.with(getApplicationContext()).load("http://p.qpic.cn/videoyun/0/2449_43b6f696980311e59ed467f22794e792_1/640")
                 .into(mVideoStart.thumbImageView);
-        Uri uri = Uri.parse("res://drawable/"+R.drawable.touxiang);
+        uri = Uri.parse("res://drawable/" + R.drawable.touxiang);
         mImg5.setImageURI(uri);
 
         mImg2.setTag(1);
         mImg3.setTag(1);
-
+        mVideoStart.setTag(1);
+        mImage1.setTag(1);
+        mImage2.setTag(1);
 
     }
 
@@ -65,6 +78,36 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
         mImg3.setOnClickListener(this);
         mImg4.setOnClickListener(this);
         mImg5.setOnClickListener(this);
+        mImage1 = (ImageView) findViewById(R.id.image1);
+        mImage2 = (ImageView) findViewById(R.id.image2);
+        mImage3 = (ImageView) findViewById(R.id.image3);
+        mImage4 = (ImageView) findViewById(R.id.image4);
+
+
+        mVideoStart.thumbImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int tag = (int) mVideoStart.getTag();
+                if (tag == 1) {
+                    mImage1.setVisibility(View.VISIBLE);
+                    mImage2.setVisibility(View.VISIBLE);
+                    mImage3.setVisibility(View.VISIBLE);
+                    mImage4.setVisibility(View.VISIBLE);
+                    mVideoStart.setTag(2);
+                } else {
+                    mImage1.setVisibility(View.GONE);
+                    mImage2.setVisibility(View.GONE);
+                    mImage3.setVisibility(View.GONE);
+                    mImage4.setVisibility(View.GONE);
+                    mVideoStart.setTag(1);
+                }
+
+            }
+        });
+        mImage1.setOnClickListener(this);
+        mImage2.setOnClickListener(this);
+        mImage3.setOnClickListener(this);
+        mImage4.setOnClickListener(this);
     }
 
     @Override
@@ -91,48 +134,114 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.img2:
                 tag = (int) mImg2.getTag();
-                if (tag1==1){
+                if (tag1 == 1) {
                     return;
-                }else {
-                    if (tag ==1) {
+                } else {
+                    if (tag == 1) {
                         mImg2.setBackgroundResource(R.drawable.oneleft);
 
                         mImg2.setTag(2);
-                    }else {
+                    } else {
                         mImg2.setBackgroundResource(R.drawable.xin);
                         mImg2.setTag(1);
                     }
                 }
 
                 break;
-                case R.id.img3:
-                    tag1 = (int) mImg3.getTag();
+            case R.id.img3:
+                tag1 = (int) mImg3.getTag();
 
-                    if (tag==1){
-                        return;
-                    }else {
-                        if (tag1 ==1) {
-                            mImg3.setBackgroundResource(R.drawable.heicheck);
-                            mImg3.setTag(2);
-                        }else {
-                            mImg3.setBackgroundResource(R.drawable.lie);
-                            mImg3.setTag(1);
-                        }
+                if (tag == 1) {
+                    return;
+                } else {
+                    if (tag1 == 1) {
+                        mImg3.setBackgroundResource(R.drawable.heicheck);
+                        mImg3.setTag(2);
+                    } else {
+                        mImg3.setBackgroundResource(R.drawable.lie);
+                        mImg3.setTag(1);
                     }
-                break;
-                /*case R.id.img4:
-                int tag = (int) mImg4.getTag();
-                if (tag==1) {
-                    mImg4.setBackgroundResource(R.drawable.oneleft);
-
-                    mImg4.setTag(2);
-                }else {
-                    mImg4.setBackgroundResource(R.drawable.xin);
-                    mImg4.setTag(1);
                 }
-                break;*/
+                break;
+            case R.id.img4:
+                UMWeb umWeb = new UMWeb("http://p.qpic.cn/videoyun/0/2449_43b6f696980311e59ed467f22794e792_1/640");
+                new ShareAction(VideoActivity.this).withMedia(umWeb).setDisplayList(SHARE_MEDIA.SINA, SHARE_MEDIA.QQ, SHARE_MEDIA.WEIXIN, SHARE_MEDIA.QZONE)
+                        .setCallback(shareListener).open();
+
+                break;
             case R.id.img5:
+                break;
+            case R.id.image1:
+                int tag2 = (int) mImage1.getTag();
+                if (tag2==1){
+                    mImage1.setBackgroundResource(R.drawable.oneleft);
+                    mImage1.setTag(2);
+                }else {
+                    mImage1.setBackgroundResource(R.drawable.xin);
+                    mImage1.setTag(1);
+                }
+                break;
+            case R.id.image2:
+                int tag3 = (int) mImage2.getTag();
+                if (tag3==1){
+                    mImage2.setBackgroundResource(R.drawable.huione);
+                    mImage2.setTag(2);
+                }else {
+                    mImage2.setBackgroundResource(R.drawable.blueone);
+                    mImage2.setTag(1);
+                }
+                break;
+            case R.id.image3:
+                break;
+            case R.id.image4:
+
                 break;
         }
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
+    }
+
+    private UMShareListener shareListener = new UMShareListener() {
+        /**
+         * @descrption 分享开始的回调
+         * @param platform 平台类型
+         */
+        @Override
+        public void onStart(SHARE_MEDIA platform) {
+
+        }
+
+        /**
+         * @descrption 分享成功的回调
+         * @param platform 平台类型
+         */
+        @Override
+        public void onResult(SHARE_MEDIA platform) {
+            Toast.makeText(VideoActivity.this, "成功了", Toast.LENGTH_LONG).show();
+        }
+
+        /**
+         * @descrption 分享失败的回调
+         * @param platform 平台类型
+         * @param t 错误原因
+         */
+        @Override
+        public void onError(SHARE_MEDIA platform, Throwable t) {
+            Toast.makeText(VideoActivity.this, "失败" + t.getMessage(), Toast.LENGTH_LONG).show();
+        }
+
+        /**
+         * @descrption 分享取消的回调
+         * @param platform 平台类型
+         */
+        @Override
+        public void onCancel(SHARE_MEDIA platform) {
+            Toast.makeText(VideoActivity.this, "取消 了", Toast.LENGTH_LONG).show();
+
+        }
+    };
 }

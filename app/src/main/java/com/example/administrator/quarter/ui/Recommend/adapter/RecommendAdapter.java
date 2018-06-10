@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -54,19 +55,58 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         String url = dataBean.getVideoUrl();
         jViewHolder.video.setUp(url,JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL,"视频播放");
-        //Uri uri = Uri.parse("http://p.qpic.cn/videoyun/0/2449_43b6f696980311e59ed467f22794e792_1/640");
-        //jViewHolder.video.thumbImageView.setImageURI(Uri.parse("http://p.qpic.cn/videoyun/0/2449_43b6f696980311e59ed467f22794e792_1/640"));
         Glide.with(context).load("http://p.qpic.cn/videoyun/0/2449_43b6f696980311e59ed467f22794e792_1/640")
                 .into(jViewHolder.video.thumbImageView);
-
-
-        /*jViewHolder.video.setOnTouchListener(new VienTouchListener() {
+        jViewHolder.video.setTag(1);
+        jViewHolder.video.thumbImageView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                jViewHolder.video.start();
-                return true;
+            public void onClick(View v) {
+                int tag = (int) jViewHolder.video.getTag();
+                if (tag == 1) {
+                    jViewHolder.image1.setVisibility(View.VISIBLE);
+                    jViewHolder.image2.setVisibility(View.VISIBLE);
+                    jViewHolder.image3.setVisibility(View.VISIBLE);
+                    jViewHolder.image4.setVisibility(View.VISIBLE);
+                    jViewHolder.video.setTag(2);
+                } else {
+                    jViewHolder.image1.setVisibility(View.GONE);
+                    jViewHolder.image2.setVisibility(View.GONE);
+                    jViewHolder.image3.setVisibility(View.GONE);
+                    jViewHolder.image4.setVisibility(View.GONE);
+                    jViewHolder.video.setTag(1);
+                }
+
             }
-        });*/
+        });
+        jViewHolder.image1.setTag(1);
+        jViewHolder.image1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int tag = (int) jViewHolder.image1.getTag();
+                if (tag==1){
+                    jViewHolder.image1.setBackgroundResource(R.drawable.oneleft);
+                    jViewHolder.image1.setTag(2);
+                }else {
+                    jViewHolder.image1.setBackgroundResource(R.drawable.xin);
+                    jViewHolder.image1.setTag(1);
+                }
+            }
+        });
+        jViewHolder.image2.setTag(1);
+        jViewHolder.image2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int tag = (int) jViewHolder.image2.getTag();
+                if (tag==1){
+                    jViewHolder.image2.setBackgroundResource(R.drawable.huione);
+                    jViewHolder.image2.setTag(2);
+                }else {
+                    jViewHolder.image2.setBackgroundResource(R.drawable.blueone);
+                    jViewHolder.image2.setTag(1);
+                }
+            }
+        });
+
 
 
     }
@@ -85,6 +125,10 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         private final TextView tv3;
         private final TextView tv4;
         private final TextView tv5;
+        private final ImageView image1;
+        private final ImageView image2;
+        private final ImageView image3;
+        private final ImageView image4;
 
         public JViewHolder(View view) {
             super(view);
@@ -95,6 +139,10 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             tv3 = view.findViewById(R.id.tv3);
             tv4 = view.findViewById(R.id.tv4);
             tv5 = view.findViewById(R.id.tv5);
+            image1 = view.findViewById(R.id.image1);
+            image2 = view.findViewById(R.id.image2);
+            image3 = view.findViewById(R.id.image3);
+            image4 = view.findViewById(R.id.image4);
         }
 
     }
