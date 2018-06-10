@@ -4,9 +4,9 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 
-import com.example.administrator.quarter.Component.DaggerHttpComponent;
 import com.example.administrator.quarter.R;
 import com.example.administrator.quarter.bean.HotVideosBean;
+import com.example.administrator.quarter.component.DaggerHttpComponent;
 import com.example.administrator.quarter.ui.base.BaseFragment;
 import com.example.administrator.quarter.ui.video.adapter.HotAdapter;
 import com.example.administrator.quarter.ui.video.contract.HotVideosContract;

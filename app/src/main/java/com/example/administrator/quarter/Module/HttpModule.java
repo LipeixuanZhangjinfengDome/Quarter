@@ -2,7 +2,10 @@ package com.example.administrator.quarter.Module;
 
 import com.example.administrator.quarter.net.AdApi;
 import com.example.administrator.quarter.net.AdApiService;
+import com.example.administrator.quarter.net.AddfavoriteApi;
+import com.example.administrator.quarter.net.AddfavoriteApiService;
 import com.example.administrator.quarter.net.Api;
+import com.example.administrator.quarter.net.CommonParamsInterceptor;
 import com.example.administrator.quarter.net.DuanZiApi;
 import com.example.administrator.quarter.net.DuanZiApiService;
 import com.example.administrator.quarter.net.HotVideosApi;
@@ -10,6 +13,8 @@ import com.example.administrator.quarter.net.HotVideosApiService;
 import com.example.administrator.quarter.net.JokesApi;
 import com.example.administrator.quarter.net.JokesApiService;
 import com.example.administrator.quarter.net.MyInterceptor;
+import com.example.administrator.quarter.net.ProjectApi;
+import com.example.administrator.quarter.net.ProjectApiService;
 
 import java.util.concurrent.TimeUnit;
 
@@ -80,5 +85,31 @@ public class HttpModule {
         HotVideosApiService hotVideosApiService = retrofit.create(HotVideosApiService.class);
         return HotVideosApi.getHotVideosApi(hotVideosApiService);
     }
+    @Provides
+    AddfavoriteApi addfavoriteApi(OkHttpClient.Builder builder){
+        builder.addInterceptor(new CommonParamsInterceptor());//添加拦截器
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.URL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(builder.build())
+                .build();
+        AddfavoriteApiService addfavoriteApiService = retrofit.create(AddfavoriteApiService.class);
+        return AddfavoriteApi.getAddfavoriteApi(addfavoriteApiService);
+    }
+    @Provides
+    ProjectApi provideProjectApi(OkHttpClient.Builder builder){
 
+
+
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(Api.URL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(builder.build())
+                .build();
+        ProjectApiService projectApiService = retrofit.create(ProjectApiService.class);
+        return ProjectApi.getProjectApi(projectApiService);
+
+
+    }
 }

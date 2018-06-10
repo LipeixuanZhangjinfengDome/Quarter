@@ -5,12 +5,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-
-import com.example.administrator.quarter.Component.DaggerHttpComponent;
-import com.example.administrator.quarter.Module.HttpModule;
 import com.example.administrator.quarter.R;
 import com.example.administrator.quarter.bean.AdBean;
 import com.example.administrator.quarter.bean.JokesBean;
+import com.example.administrator.quarter.component.DaggerHttpComponent;
 import com.example.administrator.quarter.ui.Recommend.Presenter.GetAdPresenter;
 import com.example.administrator.quarter.ui.Recommend.adapter.RecommendAdapter;
 import com.example.administrator.quarter.ui.Recommend.contract.GetAdContract;

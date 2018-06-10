@@ -1,15 +1,12 @@
 package com.example.administrator.quarter.ui.video;
 
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
-import com.example.administrator.quarter.Component.DaggerHttpComponent;
 import com.example.administrator.quarter.R;
 import com.example.administrator.quarter.bean.HotVideosBean;
+import com.example.administrator.quarter.component.DaggerHttpComponent;
 import com.example.administrator.quarter.ui.base.BaseFragment;
 import com.example.administrator.quarter.ui.video.adapter.HotAdapter;
 import com.example.administrator.quarter.ui.video.contract.HotVideosContract;

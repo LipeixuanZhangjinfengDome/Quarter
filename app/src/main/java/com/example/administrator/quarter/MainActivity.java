@@ -12,13 +12,11 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.example.administrator.quarter.ui.Recommend.RecommendFragment;
 import com.example.administrator.quarter.ui.Recommend.TuiJianFragment;
 import com.example.administrator.quarter.ui.duanzi.DuanZiFragment;
+import com.example.administrator.quarter.ui.sliding.follow.FollowActivity;
 import com.example.administrator.quarter.ui.sliding.login.Login1Activity;
 import com.example.administrator.quarter.ui.video.VideoFragment;
 import com.example.administrator.quarter.utils.BottomBar;
@@ -39,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private LinearLayout lin;
     private DuanZiFragment duanZiFragment;
     private TuiJianFragment tuiJianFragment;
+    private LinearLayout follow;
 
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -47,10 +46,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
-        /*fragmentManager = getSupportFragmentManager();
-        tuiJianFragment = new TuiJianFragment();
-        duanZiFragment = new DuanZiFragment();
-        fragmentManager.beginTransaction().replace(R.id.flout, tuiJianFragment).commit();*/
         BottomBar bottomBar = findViewById(R.id.bottom_bar);
         bottomBar.setContainer(R.id.flout)
                 .setTitleBeforeAndAfterColor("#999999", "#ff5d5e")
@@ -74,12 +69,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-
     private void getMenu() {
         menu = new SlidingMenu(this);
         menu.setMode(SlidingMenu.LEFT);
-       /* //滑动显示的布局文件
-        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);*/
+        //滑动显示的布局文件
+        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
         //触摸哪里可以发生滑动
         menu.attachToActivity(this, SlidingMenu.SLIDING_WINDOW);
         //屏幕宽度
@@ -94,9 +88,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         View lview = LayoutInflater.from(MainActivity.this).inflate(R.layout.sliding_left, null);
         menu.setMenu(lview);
         //查找侧滑菜单里面的
-       /* my_head = menu.findViewById(R.id.my_head);
-        my_name = menu.findViewById(R.id.my_name);*/
-        lin = menu.findViewById(R.id.lin1);
+        lin = menu.findViewById(R.id.account);
         lin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,8 +97,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         });
-        /* my_head.setOnClickListener(this);*/
+        follow = menu.findViewById(R.id.follow);
+        follow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, FollowActivity.class);
+                startActivity(intent);
+            }
+        });
     }
+
     public void setLisenter() {
         mNameImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,9 +125,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mNameImage = (SimpleDraweeView) findViewById(R.id.name_image);
         mChuangzuo = (ImageView) findViewById(R.id.chuangzuo);
         mLay = (LinearLayout) findViewById(R.id.lay);
-        Uri uri = Uri.parse("res://drawable/"+R.drawable.touxiang);
+        Uri uri = Uri.parse("res://drawable/" + R.drawable.touxiang);
         mNameImage.setImageURI(uri);
-       // mNameImage.setBackgroundResource(R.drawable.touxiang);
+        // mNameImage.setBackgroundResource(R.drawable.touxiang);
         mNameImage.setOnClickListener(this);
     }
 
