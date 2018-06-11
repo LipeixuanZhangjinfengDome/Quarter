@@ -1,17 +1,14 @@
 package com.example.administrator.quarter.ui.Recommend;
 
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.example.administrator.quarter.Component.DaggerHttpComponent;
 import com.example.administrator.quarter.R;
 import com.example.administrator.quarter.bean.AdBean;
 import com.example.administrator.quarter.bean.JokesBean;
+import com.example.administrator.quarter.component.DaggerHttpComponent;
 import com.example.administrator.quarter.ui.Recommend.Presenter.GetAdPresenter;
 import com.example.administrator.quarter.ui.Recommend.adapter.RecommendAdapter;
 import com.example.administrator.quarter.ui.Recommend.contract.GetAdContract;

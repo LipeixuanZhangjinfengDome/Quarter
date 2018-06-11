@@ -13,15 +13,15 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/lin1"
+            android:id="@+id/account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/my_head"
-                android:layout_width="100px"
-                android:layout_height="100px"
+                android:layout_width="50px"
+                android:layout_height="50px"
                 app:placeholderImage="@drawable/touxiang"
                 app:roundAsCircle="true"></com.facebook.drawee.view.SimpleDraweeView>
 
@@ -59,12 +59,12 @@
 
         android:layout_width="match_parent"
         android:layout_height="0px"
-        android:layout_weight="6"
+        android:layout_weight="13"
         android:background="#ffffff"
         android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/guanzhu"
+            android:id="@+id/follow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40px"
@@ -91,7 +91,7 @@
 
 
         <LinearLayout
-            android:id="@+id/shoucang"
+            android:id="@+id/addfavorite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40px"
@@ -118,7 +118,7 @@
 
 
         <LinearLayout
-            android:id="@+id/sousuo"
+            android:id="@+id/searchfriends"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40px"
@@ -145,6 +145,7 @@
 
 
         <LinearLayout
+            android:id="@+id/messagenotification"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40px"

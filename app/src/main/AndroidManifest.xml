@@ -124,6 +124,15 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:configChanges="orientation|keyboardHidden|screenSize"/>
 
+        <activity android:name=".ui.sliding.login.Login1Activity" />
+        <activity android:name=".ui.sliding.login.Login2Activity" />
+        <activity android:name=".ui.video.VideoActivity" />
+        <activity android:name=".ui.sliding.follow.FollowActivity" />
+        <activity android:name=".ui.sliding.addfavorite.AddfavoriteActivity" />
+        <activity android:name=".ui.sliding.follow.hotfollow.HotFollowActivity" />
+        <activity android:name=".ui.sliding.serchfriends.SerchfriendsActivity" />
+        <activity android:name=".ui.sliding.reg.RegActivity" />
+        <activity android:name=".ui.sliding.wjpass.WjPassActivity"></activity>
     </application>
 
 </manifest>
