@@ -8,6 +8,7 @@ import com.example.administrator.quarter.ui.sliding.addfavorite.AddfavoriteActiv
 import com.example.administrator.quarter.ui.sliding.follow.FollowActivity;
 import com.example.administrator.quarter.ui.sliding.login.Login2Activity;
 import com.example.administrator.quarter.ui.sliding.reg.RegActivity;
+import com.example.administrator.quarter.ui.sliding.serchfriends.SerchfriendsActivity;
 import com.example.administrator.quarter.ui.sliding.wjpass.WjPassActivity;
 import com.example.administrator.quarter.ui.video.HotFragment;
 import com.example.administrator.quarter.ui.video.NearFragment;
@@ -35,4 +36,5 @@ public interface HttpComponent {
 
     void inject(RegActivity regActivity);
     void inject(WjPassActivity wjPassActivity);
+    void inject(SerchfriendsActivity serchfriendsActivity);
 }
