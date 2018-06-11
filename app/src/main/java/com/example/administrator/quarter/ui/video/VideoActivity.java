@@ -109,7 +109,11 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
         mImage3.setOnClickListener(this);
         mImage4.setOnClickListener(this);
     }
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
+    }
     @Override
     public void onBackPressed() {
         if (JCVideoPlayer.backPress()) {
@@ -199,11 +203,7 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
-    }
+
 
     private UMShareListener shareListener = new UMShareListener() {
         /**
