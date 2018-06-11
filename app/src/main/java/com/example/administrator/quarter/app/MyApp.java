@@ -9,7 +9,7 @@ import com.umeng.socialize.PlatformConfig;
 public class MyApp extends Application {
     {
         PlatformConfig.setWeixin("wx396ea2b17e2f8938", "e21c38fb0064a9631b05957f6bec73bd");
-        PlatformConfig.setQQZone("1106788439", "qwQLs9n3pNWxqFM4");
+        PlatformConfig.setQQZone("1106891201", "AbTHOw2b0ZwUiKTO");
     }
     @Override
     public void onCreate() {
