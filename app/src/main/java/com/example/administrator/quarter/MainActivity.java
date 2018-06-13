@@ -19,6 +19,8 @@ import com.example.administrator.quarter.ui.duanzi.DuanZiFragment;
 import com.example.administrator.quarter.ui.make.MakeActivity;
 import com.example.administrator.quarter.ui.sliding.follow.FollowActivity;
 import com.example.administrator.quarter.ui.sliding.login.Login1Activity;
+import com.example.administrator.quarter.ui.sliding.messagenotification.XiaoXiActivity;
+import com.example.administrator.quarter.ui.sliding.serchfriends.SerchfriendsActivity;
 import com.example.administrator.quarter.ui.video.VideoFragment;
 import com.example.administrator.quarter.utils.BottomBar;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -39,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private DuanZiFragment duanZiFragment;
     private TuiJianFragment tuiJianFragment;
     private LinearLayout follow;
+    private LinearLayout sf;
+    private LinearLayout mn;
 
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -106,6 +110,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
             }
         });
+        sf = menu.findViewById(R.id.searchfriends);
+        sf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SerchfriendsActivity.class);
+                startActivity(intent);
+            }
+        });
+        mn = menu.findViewById(R.id.messagenotification);
+        mn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, XiaoXiActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     public void setLisenter() {

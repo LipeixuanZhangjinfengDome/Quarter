@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="240dp"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
@@ -13,6 +13,8 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:layout_marginLeft="20px"
+            android:layout_marginTop="20px"
             android:id="@+id/account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -56,50 +58,56 @@
     </LinearLayout>
 
     <LinearLayout
-
+        android:layout_marginTop="50px"
         android:layout_width="match_parent"
         android:layout_height="0px"
-        android:layout_weight="13"
+        android:layout_weight="12"
         android:background="#ffffff"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
         android:orientation="vertical">
 
         <LinearLayout
+            android:layout_marginTop="10px"
             android:id="@+id/follow"
+            android:layout_gravity="center_vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40px"
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="70px"
-                android:layout_height="70px"
+                android:layout_width="50px"
+                android:layout_height="50px"
+                android:layout_marginLeft="20px"
                 android:src="@drawable/xin" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="30px"
                 android:text="我的关注"
-                android:textSize="50px" />
+                android:layout_gravity="center_vertical"
+                android:textSize="42px" />
 
             <ImageView
-                android:layout_width="70px"
-                android:layout_height="70px"
+                android:layout_width="50px"
+                android:layout_height="50px"
+                android:layout_marginLeft="50px"
                 android:src="@drawable/oneregth" />
         </LinearLayout>
 
 
         <LinearLayout
+            android:layout_marginTop="20px"
             android:id="@+id/addfavorite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40px"
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="70px"
-                android:layout_height="70px"
+                android:layout_width="50px"
+                android:layout_height="50px"
+                android:layout_marginLeft="20px"
                 android:src="@drawable/xing" />
 
             <TextView
@@ -108,25 +116,27 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="30px"
                 android:text="我的收藏"
-                android:textSize="50px" />
+                android:textSize="42px" />
 
             <ImageView
-                android:layout_width="70px"
-                android:layout_height="70px"
+                android:layout_width="50px"
+                android:layout_height="50px"
+                android:layout_marginLeft="50px"
                 android:src="@drawable/oneregth" />
         </LinearLayout>
 
 
         <LinearLayout
+            android:layout_marginTop="20px"
             android:id="@+id/searchfriends"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40px"
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="70px"
-                android:layout_height="70px"
+                android:layout_width="50px"
+                android:layout_height="50px"
+                android:layout_marginLeft="20px"
                 android:src="@drawable/jing" />
 
             <TextView
@@ -135,25 +145,27 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="30px"
                 android:text="搜索好友"
-                android:textSize="50px" />
+                android:textSize="42px" />
 
             <ImageView
-                android:layout_width="70px"
-                android:layout_height="70px"
+                android:layout_width="50px"
+                android:layout_height="50px"
+                android:layout_marginLeft="50px"
                 android:src="@drawable/oneregth" />
         </LinearLayout>
 
 
         <LinearLayout
+            android:layout_marginTop="20px"
             android:id="@+id/messagenotification"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40px"
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="70px"
-                android:layout_height="70px"
+                android:layout_width="50px"
+                android:layout_height="50px"
+                android:layout_marginLeft="20px"
                 android:src="@drawable/ling" />
 
             <TextView
@@ -162,16 +174,18 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="30px"
                 android:text="消息通知"
-                android:textSize="50px" />
+                android:textSize="42px" />
 
             <ImageView
-                android:layout_width="70px"
-                android:layout_height="70px"
+                android:layout_width="50px"
+                android:layout_height="50px"
+                android:layout_marginLeft="50px"
                 android:src="@drawable/oneregth" />
         </LinearLayout>
 
 
         <LinearLayout
+            android:layout_marginLeft="20px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="150px"
@@ -183,69 +197,77 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="40px"
-                    android:layout_height="40px"
-                    android:layout_marginTop="20px"
+                    android:layout_width="50px"
+                    android:layout_height="50px"
                     android:src="@drawable/yue" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30px"
-                    android:layout_marginTop="20px"
                     android:text="夜间模式"
-                    android:textSize="50px" />
+                    android:textSize="42px" />
 
                 <com.example.administrator.quarter.ui.sliding.customviews.MyClickButton
-                    android:layout_width="200px"
-                    android:layout_height="100px"
-                    android:layout_marginLeft="20px" />
+                    android:layout_width="100px"
+                    android:layout_height="50px"
+                    android:layout_marginLeft="50px" />
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="13px"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="200px"
             android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="100px"
-                android:layout_height="100px"
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/wenjian" />
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="100px"
-                android:layout_height="100px"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="200px"
-                android:src="@drawable/shezhi" />
+                <ImageView
+                    android:layout_width="70px"
+                    android:layout_height="70px"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/wenjian" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20px"
+                    android:text="我的作品"
+                    android:textSize="40px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="70px"
+                    android:layout_height="70px"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/shezhi" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20px"
+                    android:text="设置"
+                    android:textSize="40px" />
+            </LinearLayout>
+
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50px"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="我的作品"
-                android:textSize="50px" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="130px"
-                android:gravity="center"
-                android:text="设置"
-                android:textSize="50px" />
-
-        </LinearLayout>
 
     </LinearLayout>
 </LinearLayout>
