@@ -52,8 +52,13 @@ public class GuanZhuFragment extends BaseFragment<GetAdPresenter> implements Get
 
     @Override
     public void onJokesSuccess(JokesBean jokesBean) {
-        RecommendAdapter recommendAdapter = new RecommendAdapter(getContext(), jokesBean.getData());
+        RecommendAdapter recommendAdapter = new RecommendAdapter(getContext(), jokesBean.getData(),mPresenter);
         mRlv.setAdapter(recommendAdapter);
+
+    }
+
+    @Override
+    public void onaddSuccess(String str) {
 
     }
 

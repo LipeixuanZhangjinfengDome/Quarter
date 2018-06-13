@@ -1,6 +1,7 @@
 package com.example.administrator.quarter.net;
 
 import com.example.administrator.quarter.bean.AddfavoriteBean;
+import com.example.administrator.quarter.bean.BaseBean;
 import com.example.administrator.quarter.bean.FollowUsersBean;
 import com.example.administrator.quarter.bean.HotFollowBean;
 
@@ -26,4 +27,10 @@ public interface AddfavoriteApiService {
     @FormUrlEncoded
     @POST("quarter/getFavorites")
     Observable<AddfavoriteBean> getFavorites(@Field("uid") String uid, @Field("token") String token);
+
+    //收藏
+    @FormUrlEncoded
+    @POST("quarter/addFavorite")
+    Observable<BaseBean> getAddFavorite(@Field("uid") String uid, @Field("wid") String wid, @Field("token") String token);
+
 }

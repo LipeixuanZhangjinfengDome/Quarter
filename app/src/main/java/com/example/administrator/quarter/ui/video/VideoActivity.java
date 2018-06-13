@@ -34,13 +34,13 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
      * 拿起手机速来抢个沙发吧！~
      */
     private TextView mTv3;
-    private int tag;
-    private int tag1;
     private Uri uri;
     private ImageView mImage1;
     private ImageView mImage2;
     private ImageView mImage3;
     private ImageView mImage4;
+    private int one=1;
+    private int two=2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +54,6 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
                 .into(mVideoStart.thumbImageView);
         uri = Uri.parse("res://drawable/" + R.drawable.touxiang);
         mImg5.setImageURI(uri);
-
-        mImg2.setTag(1);
-        mImg3.setTag(1);
         mVideoStart.setTag(1);
         mImage1.setTag(1);
         mImage2.setTag(1);
@@ -137,33 +134,30 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
                 finish();
                 break;
             case R.id.img2:
-                tag = (int) mImg2.getTag();
-                if (tag1 == 1) {
+                if (two == 1) {
                     return;
                 } else {
-                    if (tag == 1) {
+                    if (one == 1) {
                         mImg2.setBackgroundResource(R.drawable.oneleft);
-
-                        mImg2.setTag(2);
+                        one=2;
                     } else {
                         mImg2.setBackgroundResource(R.drawable.xin);
-                        mImg2.setTag(1);
+                        one=1;
                     }
                 }
 
                 break;
             case R.id.img3:
-                tag1 = (int) mImg3.getTag();
 
-                if (tag == 1) {
+                if (one == 2) {
                     return;
                 } else {
-                    if (tag1 == 1) {
+                    if (two == 2) {
                         mImg3.setBackgroundResource(R.drawable.heicheck);
-                        mImg3.setTag(2);
+                       two=1;
                     } else {
                         mImg3.setBackgroundResource(R.drawable.lie);
-                        mImg3.setTag(1);
+                        two=2;
                     }
                 }
                 break;

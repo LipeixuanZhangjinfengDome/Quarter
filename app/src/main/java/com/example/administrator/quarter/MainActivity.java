@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.example.administrator.quarter.ui.Recommend.TuiJianFragment;
 import com.example.administrator.quarter.ui.duanzi.DuanZiFragment;
+import com.example.administrator.quarter.ui.make.MakeActivity;
 import com.example.administrator.quarter.ui.sliding.follow.FollowActivity;
 import com.example.administrator.quarter.ui.sliding.login.Login1Activity;
 import com.example.administrator.quarter.ui.video.VideoFragment;
@@ -129,6 +130,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mNameImage.setImageURI(uri);
         // mNameImage.setBackgroundResource(R.drawable.touxiang);
         mNameImage.setOnClickListener(this);
+        mChuangzuo.setOnClickListener(this);
     }
 
     @Override
@@ -137,6 +139,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             default:
                 break;
             case R.id.name_image:
+                break;
+            case R.id.chuangzuo:
+                Intent intent= new Intent(MainActivity.this,MakeActivity.class);
+                startActivity(intent);
                 break;
         }
     }

@@ -10,10 +10,14 @@ public interface GetAdContract {
         void onSuccess(AdBean adBean);
 
         void onJokesSuccess(JokesBean jokesBean);
+        void onaddSuccess(String str);
+
     }
     interface Presenter extends BaseContract.BasePresenter<View>{
         void getAd();
 
         void getJokes();
+
+        void addCart(String uid, String wid, String token);
     }
 }

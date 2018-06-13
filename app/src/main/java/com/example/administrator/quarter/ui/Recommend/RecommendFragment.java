@@ -4,6 +4,7 @@ package com.example.administrator.quarter.ui.Recommend;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.administrator.quarter.R;
 import com.example.administrator.quarter.bean.AdBean;
@@ -15,6 +16,7 @@ import com.example.administrator.quarter.ui.Recommend.contract.GetAdContract;
 import com.example.administrator.quarter.ui.base.BaseFragment;
 import com.example.administrator.quarter.utils.GlideImageLoader;
 import com.youth.banner.Banner;
+import com.youth.banner.listener.OnBannerListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,6 +61,7 @@ public  class RecommendFragment extends BaseFragment<GetAdPresenter> implements 
             images.add(data.get(i).getIcon());
         }
         mBanner.setImages(images);
+
         mBanner.start();
 
 
@@ -66,9 +69,15 @@ public  class RecommendFragment extends BaseFragment<GetAdPresenter> implements 
     }
 
     @Override
-    public void onJokesSuccess(JokesBean jokesBean) {
-        RecommendAdapter recommendAdapter = new RecommendAdapter(getContext(), jokesBean.getData());
+    public void onJokesSuccess(final JokesBean jokesBean) {
+        RecommendAdapter recommendAdapter = new RecommendAdapter(getContext(), jokesBean.getData(),mPresenter);
         mRlv.setAdapter(recommendAdapter);
+
+    }
+
+    @Override
+    public void onaddSuccess(String str) {
+        Toast.makeText(getContext(), str, Toast.LENGTH_LONG).show();
     }
 
     @Override

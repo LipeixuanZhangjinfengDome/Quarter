@@ -11,11 +11,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.bumptech.glide.Glide;
 import com.example.administrator.quarter.R;
 import com.example.administrator.quarter.bean.JokesBean;
+import com.example.administrator.quarter.ui.Recommend.Presenter.GetAdPresenter;
+import com.example.administrator.quarter.utils.SharedPreferencesUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
@@ -26,11 +29,17 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     private Context context;
     private List<JokesBean.DataBean> list;
     private LayoutInflater inflate;
+    private GetAdPresenter getAdPresenter;
+    private final String uid;
+    private final String token;
 
-    public RecommendAdapter(Context context, List<JokesBean.DataBean> list) {
+    public RecommendAdapter(Context context, List<JokesBean.DataBean> list,GetAdPresenter getAdPresenter) {
         this.context = context;
         this.list = list;
+        this.getAdPresenter=getAdPresenter;
         inflate=LayoutInflater.from(context);
+        uid = (String) SharedPreferencesUtils.getParam(context, "uid", "14381");
+        token = (String) SharedPreferencesUtils.getParam(context, "token", "491DD2892EEBAA6C42B869F30AF027AF");
     }
 
     @NonNull
@@ -38,14 +47,13 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = this.inflate.inflate(R.layout.jokes_item, parent, false);
         JViewHolder jViewHolder = new JViewHolder(view);
-
         return jViewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         final JViewHolder jViewHolder = (JViewHolder) holder;
-        JokesBean.DataBean dataBean = list.get(position);
+        final JokesBean.DataBean dataBean = list.get(position);
         jViewHolder.image.setImageURI(dataBean.getUser().getIcon());
         jViewHolder.tv1.setText(dataBean.getUser().getNickname());
         jViewHolder.tv2.setText(dataBean.getCreateTime());
@@ -85,9 +93,11 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 int tag = (int) jViewHolder.image1.getTag();
                 if (tag==1){
                     jViewHolder.image1.setBackgroundResource(R.drawable.oneleft);
+
                     jViewHolder.image1.setTag(2);
                 }else {
                     jViewHolder.image1.setBackgroundResource(R.drawable.xin);
+
                     jViewHolder.image1.setTag(1);
                 }
             }
@@ -99,6 +109,9 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 int tag = (int) jViewHolder.image2.getTag();
                 if (tag==1){
                     jViewHolder.image2.setBackgroundResource(R.drawable.huione);
+                    int wid = dataBean.getWid();
+                    getAdPresenter.addCart(uid,wid+"",token);
+
                     jViewHolder.image2.setTag(2);
                 }else {
                     jViewHolder.image2.setBackgroundResource(R.drawable.blueone);
