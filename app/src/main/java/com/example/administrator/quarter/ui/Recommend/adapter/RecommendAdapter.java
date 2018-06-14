@@ -1,9 +1,11 @@
 package com.example.administrator.quarter.ui.Recommend.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -18,6 +20,7 @@ import com.bumptech.glide.Glide;
 import com.example.administrator.quarter.R;
 import com.example.administrator.quarter.bean.JokesBean;
 import com.example.administrator.quarter.ui.Recommend.Presenter.GetAdPresenter;
+import com.example.administrator.quarter.ui.sliding.login.Login2Activity;
 import com.example.administrator.quarter.utils.SharedPreferencesUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -38,8 +41,8 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         this.list = list;
         this.getAdPresenter=getAdPresenter;
         inflate=LayoutInflater.from(context);
-        uid = (String) SharedPreferencesUtils.getParam(context, "uid", "14381");
-        token = (String) SharedPreferencesUtils.getParam(context, "token", "491DD2892EEBAA6C42B869F30AF027AF");
+        uid = (String) SharedPreferencesUtils.getParam(context, "uid", "");
+        token = (String) SharedPreferencesUtils.getParam(context, "token", "");
     }
 
     @NonNull
@@ -109,11 +112,16 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 int tag = (int) jViewHolder.image2.getTag();
                 if (tag==1){
                     jViewHolder.image2.setBackgroundResource(R.drawable.huione);
-                    int wid = dataBean.getWid();
-                    getAdPresenter.addCart(uid,wid+"",token);
 
                     jViewHolder.image2.setTag(2);
                 }else {
+                    if (TextUtils.isEmpty(token)) {
+                        Intent intent = new Intent(context, Login2Activity.class);
+                        context.startActivity(intent);
+                    }else {
+                        int wid = dataBean.getWid();
+                        getAdPresenter.addCart(uid,wid+"",token);
+                    }
                     jViewHolder.image2.setBackgroundResource(R.drawable.blueone);
                     jViewHolder.image2.setTag(1);
                 }

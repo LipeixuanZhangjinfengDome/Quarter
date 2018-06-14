@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".app.MyApp"
@@ -21,9 +22,7 @@
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity android:name=".ui.sliding.login.Login1Activity" />
         <activity android:name=".ui.sliding.login.Login2Activity" />
         <activity android:name=".ui.video.VideoActivity" />
@@ -33,31 +32,26 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name="com.umeng.socialize.media.WBShareCallBackActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:exported="false"
-            >
-        </activity>
-        <activity android:name="com.sina.weibo.sdk.web.WeiboSdkWebActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
+        <activity
+            android:name="com.sina.weibo.sdk.web.WeiboSdkWebActivity"
             android:configChanges="keyboardHidden|orientation"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize"
-            >
-
-        </activity>
+            android:windowSoftInputMode="adjustResize"></activity>
         <activity
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+            android:name="com.sina.weibo.sdk.share.WbShareTransActivity"
             android:launchMode="singleTask"
-            android:name="com.sina.weibo.sdk.share.WbShareTransActivity">
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".wxapi.WXEntryActivity"
@@ -67,7 +61,7 @@
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
-            android:noHistory="true" >
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -79,12 +73,8 @@
         </activity>
         <activity
             android:name="com.tencent.connect.common.AssistActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:configChanges="orientation|keyboardHidden|screenSize"/>
-
-        <activity android:name=".ui.sliding.login.Login1Activity" />
-        <activity android:name=".ui.sliding.login.Login2Activity" />
-        <activity android:name=".ui.video.VideoActivity" />
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity android:name=".ui.sliding.follow.FollowActivity" />
         <activity android:name=".ui.sliding.addfavorite.AddfavoriteActivity" />
         <activity android:name=".ui.sliding.follow.hotfollow.HotFollowActivity" />
@@ -93,9 +83,9 @@
         <activity android:name=".ui.sliding.wjpass.WjPassActivity" />
         <activity android:name=".ui.make.MakeActivity" />
         <activity android:name=".ui.make.MakeVideoActivity" />
-        <activity android:name=".ui.make.MakeDuanZiActivity"></activity>
-        <activity android:name=".ui.sliding.wjpass.WjPassActivity" />
-        <activity android:name=".ui.sliding.messagenotification.XiaoXiActivity"></activity>
+        <activity android:name=".ui.make.MakeDuanZiActivity" />>
+        <activity android:name=".ui.sliding.messagenotification.XiaoXiActivity" />
+        <activity android:name=".ui.make.SuccessActivity"></activity>
     </application>
 
 </manifest>

@@ -15,6 +15,7 @@ import com.example.administrator.quarter.ui.Recommend.adapter.RecommendAdapter;
 import com.example.administrator.quarter.ui.Recommend.contract.GetAdContract;
 import com.example.administrator.quarter.ui.base.BaseFragment;
 import com.example.administrator.quarter.utils.GlideImageLoader;
+import com.example.administrator.quarter.utils.SharedPreferencesUtils;
 import com.youth.banner.Banner;
 import com.youth.banner.listener.OnBannerListener;
 
@@ -48,9 +49,11 @@ public  class RecommendFragment extends BaseFragment<GetAdPresenter> implements 
         mBanner.setImageLoader(new GlideImageLoader());
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         mRlv.setLayoutManager(linearLayoutManager);
-
+        String token = (String) SharedPreferencesUtils.getParam(getContext(), "token", "");
+        String uid = (String) SharedPreferencesUtils.getParam(getContext(), "uid", "");
         mPresenter.getAd();
         mPresenter.getJokes();
+
     }
 
     @Override
@@ -72,6 +75,7 @@ public  class RecommendFragment extends BaseFragment<GetAdPresenter> implements 
     public void onJokesSuccess(final JokesBean jokesBean) {
         RecommendAdapter recommendAdapter = new RecommendAdapter(getContext(), jokesBean.getData(),mPresenter);
         mRlv.setAdapter(recommendAdapter);
+
 
     }
 

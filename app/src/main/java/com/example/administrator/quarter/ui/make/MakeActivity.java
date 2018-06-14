@@ -28,9 +28,9 @@ public class MakeActivity extends AppCompatActivity implements View.OnClickListe
         mSp = (SimpleDraweeView) findViewById(R.id.sp);
         mSp.setOnClickListener(this);
 
-        Uri uri = Uri.parse("res://drawable/" + R.drawable.dz);
+        Uri uri = Uri.parse("res://drawable/" + R.drawable.sp);
         mDz.setImageURI(uri);
-        Uri uri1 = Uri.parse("res://drawable/" + R.drawable.sp);
+        Uri uri1 = Uri.parse("res://drawable/" + R.drawable.dz);
         mSp.setImageURI(uri1);
 
     }

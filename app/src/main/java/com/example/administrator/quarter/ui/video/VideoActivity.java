@@ -148,7 +148,6 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
 
                 break;
             case R.id.img3:
-
                 if (one == 2) {
                     return;
                 } else {
@@ -190,6 +189,10 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
                 }
                 break;
             case R.id.image3:
+                UMWeb umWeb1 = new UMWeb("http://p.qpic.cn/videoyun/0/2449_43b6f696980311e59ed467f22794e792_1/640");
+                new ShareAction(VideoActivity.this).withMedia(umWeb1).setDisplayList(SHARE_MEDIA.SINA, SHARE_MEDIA.QQ, SHARE_MEDIA.WEIXIN, SHARE_MEDIA.QZONE)
+                        .setCallback(shareListener).open();
+
                 break;
             case R.id.image4:
 

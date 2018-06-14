@@ -13,7 +13,6 @@
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="200dp"
-
         app:roundAsCircle="true" />
 
     <com.facebook.drawee.view.SimpleDraweeView
